@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {BottomTabBar} from '../components';
+import {BottomTabBar} from '../ui';
 import {ArticleDetailsScreen} from '../screens';
 
 import {colors} from '../styles';
