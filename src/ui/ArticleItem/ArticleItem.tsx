@@ -31,7 +31,7 @@ const ArticleItem: FC<ArticleItemProps> = ({item, onPress}) => {
         {!!articleCreators.length &&
           articleCreators.map(creator => {
             return (
-              <Text key={creator} style={styles.text} numberOfLines={1}>
+              <Text key={creator} style={styles.text} numberOfLines={2}>
                 {`By ${creator}`}
               </Text>
             );
