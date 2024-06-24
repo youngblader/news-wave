@@ -1,40 +1,40 @@
 import React, {FC} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {BottomTabBar} from '../ui';
 import {ArticleDetailsScreen} from '../screens';
+import BottomTabStackSNavigator from './BottomTabStackNavigator';
 
 import {colors} from '../styles';
 import {MainStackParamsList} from './types';
 
-const MainStackNavigator = createStackNavigator<MainStackParamsList>();
+const Stack = createStackNavigator<MainStackParamsList>();
 
-const MainStackNavigation: FC = () => {
+const MainStackNavigator: FC = () => {
   return (
-    <MainStackNavigator.Navigator
+    <Stack.Navigator
       initialRouteName="BottomTabBar"
       screenOptions={{
         cardStyle: {
           backgroundColor: colors.white,
         },
       }}>
-      <MainStackNavigator.Screen
+      <Stack.Screen
         name="BottomTabBar"
         options={{
           headerShown: false,
         }}
-        component={BottomTabBar}
+        component={BottomTabStackSNavigator}
       />
 
-      <MainStackNavigator.Screen
+      <Stack.Screen
         name="ArticleDetailsScreen"
         options={{
           headerShown: false,
         }}
         component={ArticleDetailsScreen}
       />
-    </MainStackNavigator.Navigator>
+    </Stack.Navigator>
   );
 };
 
-export default MainStackNavigation;
+export default MainStackNavigator;

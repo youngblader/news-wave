@@ -1,24 +1,35 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 import {Article} from '../models/Article';
 
-export type RootStackParamsList = {
+type RootStackParamsList = {
   Main: NavigatorScreenParams<MainStackParamsList>;
 };
 
-export type MainStackParamsList = {
+type MainStackParamsList = {
   ArticleDetailsScreen: {article: Article};
+  ArticlesScreen: undefined;
+  SearchArticlesScreen: undefined;
+  BookmarksScreen: undefined;
   BottomTabBar: NavigatorScreenParams<BottomBarStackParamsList>;
 };
 
-export type BottomBarStackParamsList = {
+type BottomBarStackParamsList = {
   ArticlesScreen: undefined;
   SearchArticlesScreen: undefined;
   BookmarksScreen: undefined;
 };
 
-export type NavigationScreens = {
-  ArticleDetailsScreen: {article: Article};
-  ArticlesScreen: undefined;
-  SearchArticlesScreen: undefined;
-  BookmarksScreen: undefined;
+type AppStackParamsList = MainStackParamsList & BottomBarStackParamsList;
+
+export type {
+  RootStackParamsList,
+  MainStackParamsList,
+  AppStackParamsList,
+  BottomBarStackParamsList,
 };
+// export type NavigationScreens = {
+//   ArticleDetailsScreen: {article: Article};
+//   ArticlesScreen: undefined;
+//   SearchArticlesScreen: undefined;
+//   BookmarksScreen: undefined;
+// };

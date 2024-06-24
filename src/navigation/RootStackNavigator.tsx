@@ -1,19 +1,19 @@
 import React, {FC} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import MainStacNavigation from './MainStackNavigation';
+import MainStackNavigator from './MainStackNavigator';
 import {RootStackParamsList} from './types';
 import {colors} from '../styles';
 
-const RootStackNavigator = createStackNavigator<RootStackParamsList>();
+const Stack = createStackNavigator<RootStackParamsList>();
 
-const RootStackNavigation: FC = () => {
+const RootStackNavigator: FC = () => {
   return (
-    <RootStackNavigator.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <RootStackNavigator.Screen
+      <Stack.Screen
         name="Main"
         options={{
           headerShown: false,
@@ -21,10 +21,10 @@ const RootStackNavigation: FC = () => {
             backgroundColor: colors.white,
           },
         }}
-        component={MainStacNavigation}
+        component={MainStackNavigator}
       />
-    </RootStackNavigator.Navigator>
+    </Stack.Navigator>
   );
 };
 
-export default RootStackNavigation;
+export default RootStackNavigator;

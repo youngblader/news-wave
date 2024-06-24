@@ -1,30 +1,27 @@
 import React, {FC} from 'react';
-import {ColorValue} from 'react-native';
+import {ColorValue, StyleSheet} from 'react-native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import FastImage, {Source} from 'react-native-fast-image';
-
 import {
-  BookmarksScreen,
   ArticlesScreen,
   SearchArticlesScreen,
-} from '../../screens';
+  BookmarksScreen,
+} from '../screens';
 
-import {BottomBarStackParamsList} from '../../navigation/types';
-import {IMAGES} from '../../constants/images';
-import {colors} from '../../styles';
-import {styles} from './styles';
+import {IMAGES} from '../constants/images';
+import {colors} from '../styles';
+import {BottomBarStackParamsList} from './types';
 
-const BottomTabStackNavigator =
-  createBottomTabNavigator<BottomBarStackParamsList>();
+const Stack = createBottomTabNavigator<BottomBarStackParamsList>();
 
-const BottomTabBar: FC = () => {
+const BottomTabStackSNavigator: FC = () => {
   return (
-    <BottomTabStackNavigator.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <BottomTabStackNavigator.Screen
+      <Stack.Screen
         name="ArticlesScreen"
         component={ArticlesScreen}
         options={{
@@ -33,7 +30,7 @@ const BottomTabBar: FC = () => {
             renderTabBarIcon(IMAGES.home, color, focused),
         }}
       />
-      <BottomTabStackNavigator.Screen
+      <Stack.Screen
         name="SearchArticlesScreen"
         component={SearchArticlesScreen}
         options={{
@@ -42,7 +39,7 @@ const BottomTabBar: FC = () => {
             renderTabBarIcon(IMAGES.search, color, focused),
         }}
       />
-      <BottomTabStackNavigator.Screen
+      <Stack.Screen
         name="BookmarksScreen"
         component={BookmarksScreen}
         options={{
@@ -51,9 +48,17 @@ const BottomTabBar: FC = () => {
             renderTabBarIcon(IMAGES.bookmarks, color, focused),
         }}
       />
-    </BottomTabStackNavigator.Navigator>
+    </Stack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  bottomBarIcon: {
+    marginTop: 20,
+    height: 24,
+    width: 24,
+  },
+});
 
 const renderTabBarIcon = (
   iconName: number | Source,
@@ -68,4 +73,4 @@ const renderTabBarIcon = (
   />
 );
 
-export default BottomTabBar;
+export default BottomTabStackSNavigator;
