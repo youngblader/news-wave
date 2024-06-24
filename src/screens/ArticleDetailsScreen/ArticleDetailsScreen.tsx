@@ -6,39 +6,15 @@ import FastImage from 'react-native-fast-image';
 
 import {Header} from '../../components';
 
-import {useDispatch, useRoute, useSelector} from '../../hooks';
-
-import {
-  addBookmarkArticle,
-  removeBookmarkArticle,
-} from '../../store/reducers/BookmarksArticleReducer/bookmarksReducer';
+import {useArticleDetails} from '.';
 
 import {IMAGES} from '../../constants/images';
 import {styles} from './styles';
 import {hitSlop} from '../../styles';
 
 const ArticleDetailsScreen: FC = () => {
-  const dispatch = useDispatch();
-
-  const {params} = useRoute('ArticleDetailsScreen');
-  const {articles} = useSelector(state => state.bookmarksArticleReducer);
-
-  const article = params?.article ?? null;
-  const articleCreators = article?.creator ?? [];
-
-  const isAddedArticle = articles
-    .map(item => item.article_id)
-    .includes(article?.article_id ?? '');
-
-  const addBookmark = () => {
-    if (article) {
-      if (isAddedArticle) {
-        dispatch(removeBookmarkArticle(article));
-        return;
-      }
-      dispatch(addBookmarkArticle(article));
-    }
-  };
+  const {article, isAddedArticle, articleCreators, addBookmark} =
+    useArticleDetails();
 
   return (
     <View style={styles.container}>

@@ -6,4 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
   },
+  searchBarContanier: {
+    marginVertical: 10,
+  },
 });

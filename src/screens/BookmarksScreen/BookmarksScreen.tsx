@@ -1,16 +1,23 @@
 import React, {FC} from 'react';
 import {View} from 'react-native';
 
-import {Header} from '../../components';
-import {BookmarksArticlesList} from '../../modules';
+import {ArticlesList, Header} from '../../components';
+import {useBookmarks} from '.';
 
 import {styles} from './styles';
 
 const BookmarksScreen: FC = () => {
+  const {articles, presentArticleDetailsScreen} = useBookmarks();
+
   return (
     <View style={styles.container}>
       <Header />
-      <BookmarksArticlesList />
+
+      <ArticlesList
+        data={articles}
+        isLoading={false}
+        onPress={presentArticleDetailsScreen}
+      />
     </View>
   );
 };

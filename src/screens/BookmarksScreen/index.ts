@@ -1,11 +1,7 @@
-import React, {FC} from 'react';
-import {ArticlesList} from '../../components';
 import {useNavigation, useSelector} from '../../hooks';
-
 import {Article} from '../../models/Article';
-import {BookmarksArticlesListProps} from './types';
 
-const BookmarksArticlesList: FC<BookmarksArticlesListProps> = () => {
+export const useBookmarks = () => {
   const navigation = useNavigation();
   const {articles} = useSelector(state => state.bookmarksArticleReducer);
 
@@ -18,13 +14,8 @@ const BookmarksArticlesList: FC<BookmarksArticlesListProps> = () => {
     });
   };
 
-  return (
-    <ArticlesList
-      data={articles}
-      isLoading={false}
-      onPress={presentArticleDetailsScreen}
-    />
-  );
+  return {
+    articles,
+    presentArticleDetailsScreen,
+  };
 };
-
-export default BookmarksArticlesList;

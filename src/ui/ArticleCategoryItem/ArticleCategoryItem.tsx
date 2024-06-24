@@ -10,15 +10,21 @@ const ArticleCategoryItem: FC<ArticleCategoryItemProps> = ({
   isSelectedItem,
   onPress,
 }) => {
-  const backgroundStyle = isSelectedItem ? colors.mainBlue : colors.lightGray;
-  const colorStyle = isSelectedItem ? colors.white : colors.gray;
-
   return (
     <TouchableOpacity
       hitSlop={hitSlop}
-      style={[styles.categoryContainer, {backgroundColor: backgroundStyle}]}
+      style={[
+        styles.categoryContainer,
+        {backgroundColor: isSelectedItem ? colors.mainBlue : colors.lightGray},
+      ]}
       onPress={onPress}>
-      <Text style={[styles.categoryText, {color: colorStyle}]}>{category}</Text>
+      <Text
+        style={[
+          styles.categoryText,
+          {color: isSelectedItem ? colors.white : colors.gray},
+        ]}>
+        {category}
+      </Text>
     </TouchableOpacity>
   );
 };
