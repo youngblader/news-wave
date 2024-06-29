@@ -1,24 +1,21 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {Article} from '../../../models/Article';
-import {BookmarksArticleState} from './types';
+import {BookmarksState} from './types';
 
-const initialState: BookmarksArticleState = {
+const initialState: BookmarksState = {
   articles: [],
 };
 
-const bookmarksArticleReducer = createSlice({
-  name: 'bookmarksArticleReducer',
+const bookmarksSlicer = createSlice({
+  name: 'bookmarks',
   initialState,
   reducers: {
-    addBookmarkArticle(
-      state: BookmarksArticleState,
-      action: PayloadAction<Article>,
-    ) {
+    addBookmarkArticle(state: BookmarksState, action: PayloadAction<Article>) {
       state.articles.unshift(action.payload);
     },
     removeBookmarkArticle(
-      state: BookmarksArticleState,
+      state: BookmarksState,
       action: PayloadAction<Article>,
     ) {
       state.articles = state.articles.filter(
@@ -29,6 +26,6 @@ const bookmarksArticleReducer = createSlice({
 });
 
 export const {addBookmarkArticle, removeBookmarkArticle} =
-  bookmarksArticleReducer.actions;
+  bookmarksSlicer.actions;
 
-export default bookmarksArticleReducer.reducer;
+export default bookmarksSlicer.reducer;

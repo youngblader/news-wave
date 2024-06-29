@@ -2,8 +2,8 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {persistReducer, persistStore} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {articlesAPI} from '../../services/ArticlesService';
-import {bookmarksArticleReducer} from '../reducers';
+import {articlesAPI} from '../services/ArticlesService';
+import bookmarksSlicer from './slices/bookmarks/slicer';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +12,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  bookmarksArticleReducer,
+  bookmarks: bookmarksSlicer,
   [articlesAPI.reducerPath]: articlesAPI.reducer,
 });
 

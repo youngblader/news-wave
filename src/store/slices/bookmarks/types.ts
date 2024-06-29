@@ -1,5 +1,5 @@
 import {Article} from '../../../models/Article';
 
-export type BookmarksArticleState = {
+export type BookmarksState = {
   articles: Article[];
 };

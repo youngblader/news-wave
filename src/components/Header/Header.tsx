@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {useNavigation} from '../../hooks';
+import {useAppNavigation} from '../../hooks';
 
 import {IMAGES} from '../../constants/images';
 import {colors, hitSlop} from '../../styles';
@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({
   isNavigationHeader = false,
   rightComponent = null,
 }) => {
-  const navigation = useNavigation();
+  const navigation = useAppNavigation();
   const insets = useSafeAreaInsets();
 
   const onDismiss = () => {

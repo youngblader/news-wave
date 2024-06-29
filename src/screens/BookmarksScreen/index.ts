@@ -1,9 +1,10 @@
-import {useNavigation, useSelector} from '../../hooks';
 import {Article} from '../../models/Article';
+import {useAppNavigation} from '../../hooks';
+import {useAppSelector} from '../../store/hooks';
 
 export const useBookmarks = () => {
-  const navigation = useNavigation();
-  const {articles} = useSelector(state => state.bookmarksArticleReducer);
+  const navigation = useAppNavigation();
+  const {articles} = useAppSelector(state => state.bookmarks);
 
   const presentArticleDetailsScreen = (article: Article) => {
     navigation.navigate('Main', {

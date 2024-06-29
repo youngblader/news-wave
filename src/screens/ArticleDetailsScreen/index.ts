@@ -1,16 +1,18 @@
-import {useDispatch, useRoute, useSelector} from '../../hooks';
+import {useAppRoute} from '../../hooks';
+import {useAppDispatch, useAppSelector} from '../../store/hooks';
+
 import {
-  addBookmarkArticle,
   removeBookmarkArticle,
-} from '../../store/reducers/BookmarksArticleReducer/bookmarksReducer';
+  addBookmarkArticle,
+} from '../../store/slices/bookmarks/slicer';
 
 export const useArticleDetails = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     params: {article},
-  } = useRoute('ArticleDetailsScreen');
+  } = useAppRoute('ArticleDetailsScreen');
 
-  const {articles} = useSelector(state => state.bookmarksArticleReducer);
+  const {articles} = useAppSelector(state => state.bookmarks);
 
   const articleCreators = article?.creator ?? [];
 

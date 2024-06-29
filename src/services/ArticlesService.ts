@@ -2,14 +2,14 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {ArticleResponse} from '../models/ArticleResponse';
 import {ArticleCategory} from '../models/ArticleCategory';
 
-const KEY = 'YOUR KEY';
+const KEY = 'pub_25111be18dd85552481643da21644ae3fe1d7'; // 'YOUR KEY';
 
 export const articlesAPI = createApi({
   reducerPath: 'articlesAPI',
   baseQuery: fetchBaseQuery({baseUrl: 'https://newsdata.io/api/1'}),
   tagTypes: ['Articles'],
   endpoints: build => ({
-    fetchAllArticles: build.query<ArticleResponse, ArticleCategory>({
+    getArticles: build.query<ArticleResponse, ArticleCategory>({
       query: (category: ArticleCategory = ArticleCategory.business) => ({
         url: '/latest',
         method: 'GET',
@@ -23,7 +23,7 @@ export const articlesAPI = createApi({
         },
       }),
     }),
-    fetchSearchArticle: build.query<ArticleResponse, string>({
+    getSearchArticle: build.query<ArticleResponse, string>({
       query: (text: string) => ({
         url: '/latest',
         method: 'GET',
@@ -38,3 +38,5 @@ export const articlesAPI = createApi({
     }),
   }),
 });
+
+export const {useGetArticlesQuery, useGetSearchArticleQuery} = articlesAPI;

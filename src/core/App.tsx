@@ -6,7 +6,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 
 import RootStackNavigator from '../navigation/RootStackNavigator';
 
-import {persistor, store} from '../store/store/store';
+import {persistor, store} from '../store';
 
 const App: FC = () => {
   return (
