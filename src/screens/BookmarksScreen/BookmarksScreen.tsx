@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
 import {View} from 'react-native';
 
-import {ArticlesList, Header} from '../../components';
-import {useBookmarks} from '.';
+import {Header} from '../../ui';
+import {ArticlesList} from '../../components';
 
+import {useBookmarks} from '.';
 import {styles} from './styles';
 
 const BookmarksScreen: FC = () => {
-  const {articles, presentArticleDetailsScreen} = useBookmarks();
+  const {articles, navigateArticleDetails} = useBookmarks();
 
   return (
     <View style={styles.container}>
@@ -16,7 +17,7 @@ const BookmarksScreen: FC = () => {
       <ArticlesList
         data={articles}
         isLoading={false}
-        onPress={presentArticleDetailsScreen}
+        onPress={navigateArticleDetails}
       />
     </View>
   );

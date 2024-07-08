@@ -7,11 +7,11 @@ import {
   ArticlesScreen,
   SearchArticlesScreen,
   BookmarksScreen,
-} from '../screens';
+} from '../../screens';
 
-import {IMAGES} from '../constants/images';
-import {colors} from '../styles';
-import {BottomBarStackParamsList} from './types';
+import {IMAGES} from '../../constants/images';
+import {colors} from '../../styles';
+import {BottomBarStackParamsList} from '../types';
 
 const Stack = createBottomTabNavigator<BottomBarStackParamsList>();
 
@@ -68,7 +68,7 @@ const renderTabBarIcon = (
   <FastImage
     source={iconName}
     style={styles.bottomBarIcon}
-    tintColor={focused ? colors.mainBlue : color}
+    tintColor={focused ? colors.primary : color}
     resizeMode={'contain'}
   />
 );

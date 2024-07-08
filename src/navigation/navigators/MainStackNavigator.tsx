@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {ArticleDetailsScreen} from '../screens';
+import {ArticleDetailsScreen} from '../../screens';
 import BottomTabStackSNavigator from './BottomTabStackNavigator';
 
-import {colors} from '../styles';
-import {MainStackParamsList} from './types';
+import {colors} from '../../styles';
+import {MainStackParamsList} from '../types';
 
 const Stack = createStackNavigator<MainStackParamsList>();
 

@@ -4,7 +4,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {PersistGate} from 'redux-persist/integration/react';
 
-import RootStackNavigator from '../navigation/RootStackNavigator';
+import RootStackNavigator from '../navigation/navigators/RootStackNavigator';
 
 import {persistor, store} from '../store';
 

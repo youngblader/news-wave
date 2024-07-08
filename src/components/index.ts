@@ -1,4 +1,5 @@
+import ArticleCategoryItem from './ArticleCategoryItem/ArticleCategoryItem';
+import ArticleItem from './ArticleItem/ArticleItem';
 import ArticlesList from './ArticlesList/ArticlesList';
-import Header from './Header/Header';
 
-export {ArticlesList, Header};
+export {ArticlesList, ArticleCategoryItem, ArticleItem};

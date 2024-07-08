@@ -12,7 +12,12 @@ import {styles} from './styles';
 const SearchBar: FC<SearchBarProps> = ({query, onChange}) => {
   return (
     <View style={styles.searchBarContainer}>
-      <FastImage style={styles.searchBarIcon} source={IMAGES.searchInput} />
+      <FastImage
+        style={styles.searchBarIcon}
+        source={IMAGES.searchInput}
+        tintColor={colors.black}
+      />
+
       <TextInput
         style={styles.searchBar}
         placeholder="Search"

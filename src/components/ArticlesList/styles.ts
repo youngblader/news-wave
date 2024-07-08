@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../styles';
 
 export const styles = StyleSheet.create({
   flatlistInsets: {
@@ -9,10 +8,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   separator: {
-    marginTop: 30,
-    marginBottom: 20,
-    height: 1,
-    backgroundColor: colors.lightGray,
+    height: 16,
   },
   listEmptyContainer: {
     flex: 1,

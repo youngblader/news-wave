@@ -2,7 +2,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {ArticleResponse} from '../models/ArticleResponse';
 import {ArticleCategory} from '../models/ArticleCategory';
 
-const KEY = 'pub_25111be18dd85552481643da21644ae3fe1d7'; // 'YOUR KEY';
+const KEY = 'pub_25111bd8d2f3eadeedb47d121462e133a49f7'; // 'YOUR KEY';
 
 export const articlesAPI = createApi({
   reducerPath: 'articlesAPI',

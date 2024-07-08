@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
   articlePreview: {
     height: 229,
     width: '100%',
+    backgroundColor: colors.gray,
   },
   articleBody: {
     fontSize: 15,
@@ -38,9 +39,16 @@ export const styles = StyleSheet.create({
     color: colors.gray,
     fontWeight: '500',
   },
+  creator: {
+    fontSize: 13,
+    lineHeight: 20,
+    color: colors.gray,
+    fontWeight: '500',
+    maxWidth: 220,
+  },
   articleCategory: {
     padding: 5,
-    backgroundColor: colors.mainBlue,
+    backgroundColor: colors.primary,
     borderRadius: 4,
     opacity: 0.7,
   },

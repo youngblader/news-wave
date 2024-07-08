@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {FlatList, View} from 'react-native';
 
-import {ArticleCategoryItem} from '../../ui';
-import {ArticlesList, Header} from '../../components';
+import {Header} from '../../ui';
+import {ArticlesList, ArticleCategoryItem} from '../../components';
 import {useArticles} from '.';
 
 import {styles} from './styles';
@@ -15,7 +15,7 @@ const ArticlesScreen: FC = () => {
     categories,
     selectedArticle,
     onArticlePress,
-    presentArticleDetailsScreen,
+    navigateArticleDetails,
   } = useArticles();
 
   return (
@@ -23,7 +23,7 @@ const ArticlesScreen: FC = () => {
       <Header />
 
       <View style={styles.container}>
-        <View style={styles.content}>
+        <View>
           <FlatList
             data={categories}
             ref={ref}
@@ -49,7 +49,7 @@ const ArticlesScreen: FC = () => {
           <ArticlesList
             isLoading={isLoading}
             data={data?.results || []}
-            onPress={presentArticleDetailsScreen}
+            onPress={navigateArticleDetails}
           />
         </View>
       </View>

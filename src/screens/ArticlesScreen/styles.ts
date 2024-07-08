@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
   separator: {
     width: 10,
   },
-  content: {},
   list: {
     flexGrow: 1,
     marginVertical: 14,

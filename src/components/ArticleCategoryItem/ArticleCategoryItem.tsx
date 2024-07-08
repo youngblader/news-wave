@@ -15,7 +15,7 @@ const ArticleCategoryItem: FC<ArticleCategoryItemProps> = ({
       hitSlop={hitSlop}
       style={[
         styles.categoryContainer,
-        {backgroundColor: isSelectedItem ? colors.mainBlue : colors.lightGray},
+        {backgroundColor: isSelectedItem ? colors.primary : colors.lightGray},
       ]}
       onPress={onPress}>
       <Text

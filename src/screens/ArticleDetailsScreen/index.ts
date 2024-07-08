@@ -1,4 +1,4 @@
-import {useAppRoute} from '../../hooks';
+import {useAppRoute} from '../../navigation/hooks';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
 
 import {

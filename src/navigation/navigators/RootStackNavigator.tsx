@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import MainStackNavigator from './MainStackNavigator';
-import {RootStackParamsList} from './types';
-import {colors} from '../styles';
+import {RootStackParamsList} from '../types';
+import {colors} from '../../styles';
 
 const Stack = createStackNavigator<RootStackParamsList>();
 

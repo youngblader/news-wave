@@ -1,6 +1,5 @@
-import ArticleCategoryItem from './ArticleCategoryItem/ArticleCategoryItem';
-import ArticleItem from './ArticleItem/ArticleItem';
 import EmptyListView from './EmptyListView/EmptyListView';
+import Header from './Header/Header';
 import SearchBar from './SearchBar/SearchBar';
 
-export {SearchBar, ArticleItem, EmptyListView, ArticleCategoryItem};
+export {Header, SearchBar, EmptyListView};

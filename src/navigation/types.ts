@@ -27,9 +27,3 @@ export type {
   AppStackParamsList,
   BottomBarStackParamsList,
 };
-// export type NavigationScreens = {
-//   ArticleDetailsScreen: {article: Article};
-//   ArticlesScreen: undefined;
-//   SearchArticlesScreen: undefined;
-//   BookmarksScreen: undefined;
-// };

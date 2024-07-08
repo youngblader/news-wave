@@ -1,31 +1,21 @@
 import {useState, useRef} from 'react';
 import {FlatList} from 'react-native';
 
-import {useAppNavigation} from '../../hooks';
-import {useGetArticlesQuery} from '../../services/ArticlesService';
+import {useRouter} from '../../navigation/hooks';
 
-import {Article} from '../../models/Article';
+import {useGetArticlesQuery} from '../../services/ArticlesService';
 import {ArticleCategory} from '../../models/ArticleCategory';
 
 const categories = Object.values(ArticleCategory);
 const currentCategory = ArticleCategory.business;
 
 export const useArticles = () => {
-  const navigation = useAppNavigation();
+  const {navigateArticleDetails} = useRouter();
 
   const [selectedArticle, setSelectedArticle] = useState(currentCategory);
   const ref = useRef<FlatList>(null);
 
   const {data, isLoading} = useGetArticlesQuery(selectedArticle);
-
-  const presentArticleDetailsScreen = (article: Article) => {
-    navigation.navigate('Main', {
-      screen: 'ArticleDetailsScreen',
-      params: {
-        article,
-      },
-    });
-  };
 
   const onArticlePress = (item: ArticleCategory, index: number) => {
     setSelectedArticle(item);
@@ -44,6 +34,6 @@ export const useArticles = () => {
     categories,
     selectedArticle,
     onArticlePress,
-    presentArticleDetailsScreen,
+    navigateArticleDetails,
   };
 };

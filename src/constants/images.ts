@@ -4,9 +4,7 @@ export const IMAGES = {
   chevron: require('../assets/images/chevron.png'),
   home: require('../assets/images/home.png'),
   logo: require('../assets/images/logo.png'),
-  menu: require('../assets/images/menu.png'),
   search: require('../assets/images/search.png'),
   searchInput: require('../assets/images/search-input.png'),
   share: require('../assets/images/share.png'),
-  plug: require('../assets/images/plug.png'),
 };

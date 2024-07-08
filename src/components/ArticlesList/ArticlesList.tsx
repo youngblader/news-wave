@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useCallback} from 'react';
 import {View, FlatList, ActivityIndicator} from 'react-native';
 
-import {ArticleItem, EmptyListView} from '../../ui';
+import {EmptyListView} from '../../ui';
+import ArticleItem from '../ArticleItem/ArticleItem';
 
 import {ArticleDataError} from '../../models/ArticleDataError';
 import {ArticlesListProps} from './types';
@@ -12,6 +13,10 @@ const ArticlesList: FC<ArticlesListProps> = ({
   isLoading,
   onPress = () => {},
 }) => {
+  // const renderItem = useCallback(({item}) => {
+  //   return <ArticleItem item={item} onPress={() => onPress(item)} />;
+  // }, []);
+
   return (
     <FlatList
       data={data}

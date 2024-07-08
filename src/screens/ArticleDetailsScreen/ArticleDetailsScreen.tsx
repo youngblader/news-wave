@@ -3,9 +3,7 @@ import {View, Text, ScrollView, FlatList, TouchableOpacity} from 'react-native';
 
 import moment from 'moment';
 import FastImage from 'react-native-fast-image';
-
-import {Header} from '../../components';
-
+import {Header} from '../../ui';
 import {useArticleDetails} from '.';
 
 import {IMAGES} from '../../constants/images';
@@ -40,7 +38,6 @@ const ArticleDetailsScreen: FC = () => {
           source={{uri: article?.image_url}}
           style={styles.articlePreview}
           resizeMode={'cover'}
-          defaultSource={IMAGES.plug}
         />
 
         <View style={styles.content}>
@@ -66,11 +63,14 @@ const ArticleDetailsScreen: FC = () => {
           <View style={styles.articleCreatorDateContainer}>
             {!!articleCreators &&
               articleCreators.map(creator => (
-                <Text key={creator} style={styles.text}>{`By ${creator}`}</Text>
+                <Text
+                  key={creator}
+                  style={styles.creator}
+                  numberOfLines={1}>{`By ${creator}`}</Text>
               ))}
 
             <Text style={styles.text}>
-              {moment(article?.pubDate).format('L')}
+              {moment(article?.pubDate).format('LL')}
             </Text>
           </View>
 
