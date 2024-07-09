@@ -4,7 +4,6 @@ export const styles = StyleSheet.create({
   flatlistInsets: {
     flexGrow: 1,
     paddingBottom: 40,
-    paddingTop: 20,
     paddingHorizontal: 16,
   },
   separator: {

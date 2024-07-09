@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
@@ -60,4 +60,4 @@ const ArticleItem: FC<ArticleItemProps> = ({item, onPress = () => {}}) => {
   );
 };
 
-export default memo(ArticleItem);
+export default ArticleItem;
