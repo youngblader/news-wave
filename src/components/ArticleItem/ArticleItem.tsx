@@ -5,10 +5,11 @@ import FastImage from 'react-native-fast-image';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 
 import Animated, {
+  Easing,
   FadeIn,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
+  withTiming,
 } from 'react-native-reanimated';
 
 import moment from 'moment';
@@ -24,12 +25,18 @@ const ArticleItem: FC<ArticleItemProps> = ({item, onPress = () => {}}) => {
 
   const scaleAnimation = useSharedValue(1);
 
-  const pan = Gesture.Tap()
+  const pan = Gesture.Pan()
     .onBegin(() => {
-      scaleAnimation.value = withSpring(0.94);
+      scaleAnimation.value = withTiming(0.94, {
+        duration: 150,
+        easing: Easing.linear,
+      });
     })
     .onFinalize(() => {
-      scaleAnimation.value = withSpring(1);
+      scaleAnimation.value = withTiming(1, {
+        duration: 150,
+        easing: Easing.linear,
+      });
     });
 
   const animatedStyles = useAnimatedStyle(() => ({
