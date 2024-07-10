@@ -1,8 +1,10 @@
 import React, {FC} from 'react';
 import {View, Text, ScrollView, FlatList, TouchableOpacity} from 'react-native';
 
+import Animated, {FadeInLeft} from 'react-native-reanimated';
 import moment from 'moment';
 import FastImage from 'react-native-fast-image';
+
 import {Header} from '../../ui';
 import {useArticleDetails} from '.';
 
@@ -41,7 +43,11 @@ const ArticleDetailsScreen: FC = () => {
         />
 
         <View style={styles.content}>
-          <Text style={styles.articleTitle}>{article?.title}</Text>
+          <Animated.Text
+            entering={FadeInLeft.duration(400).delay(400)}
+            style={styles.articleTitle}>
+            {article?.title}
+          </Animated.Text>
 
           <FlatList
             data={article?.category}
@@ -60,7 +66,9 @@ const ArticleDetailsScreen: FC = () => {
             keyExtractor={item => item}
           />
 
-          <View style={styles.articleCreatorDateContainer}>
+          <Animated.View
+            entering={FadeInLeft.duration(500).delay(600)}
+            style={styles.articleCreatorDateContainer}>
             {!!articleCreators &&
               articleCreators.map(creator => (
                 <Text
@@ -72,9 +80,13 @@ const ArticleDetailsScreen: FC = () => {
             <Text style={styles.text}>
               {moment(article?.pubDate).format('LL')}
             </Text>
-          </View>
+          </Animated.View>
 
-          <Text style={styles.articleBody}>{article?.description}</Text>
+          <Animated.Text
+            entering={FadeInLeft.duration(500).delay(800)}
+            style={styles.articleBody}>
+            {article?.description}
+          </Animated.Text>
         </View>
       </ScrollView>
     </View>

@@ -7,16 +7,19 @@ import {PersistGate} from 'redux-persist/integration/react';
 import RootStackNavigator from '../navigation/navigators/RootStackNavigator';
 
 import {persistor, store} from '../store';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const App: FC = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <NavigationContainer>
-          <SafeAreaProvider>
-            <RootStackNavigator />
-          </SafeAreaProvider>
-        </NavigationContainer>
+        <GestureHandlerRootView>
+          <NavigationContainer>
+            <SafeAreaProvider>
+              <RootStackNavigator />
+            </SafeAreaProvider>
+          </NavigationContainer>
+        </GestureHandlerRootView>
       </PersistGate>
     </Provider>
   );
