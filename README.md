@@ -19,6 +19,7 @@ git clone https://github.com/youngblader/news-wave
 * Redux-Persist
 * Async-Storage
 * moment
+* React-Native-Reanimated
 
 ## Authors
 
