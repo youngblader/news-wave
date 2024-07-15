@@ -9,20 +9,26 @@ import {
   BookmarksScreen,
 } from '../../screens';
 
+import {TabBarStackParamsList} from '../types';
 import {IMAGES} from '../../constants/images';
 import {colors} from '../../styles';
-import {BottomBarStackParamsList} from '../types';
 
-const Stack = createBottomTabNavigator<BottomBarStackParamsList>();
+const Stack = createBottomTabNavigator<TabBarStackParamsList>();
 
-const BottomTabStackSNavigator: FC = () => {
+const TabScreens = {
+  Articles: 'Articles',
+  SearchArticles: 'SearchArticles',
+  Bookmarks: 'Bookmarks',
+} as const;
+
+const TabStackNavigator: FC = () => {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
       <Stack.Screen
-        name="ArticlesScreen"
+        name={TabScreens.Articles}
         component={ArticlesScreen}
         options={{
           title: '',
@@ -31,7 +37,7 @@ const BottomTabStackSNavigator: FC = () => {
         }}
       />
       <Stack.Screen
-        name="SearchArticlesScreen"
+        name={TabScreens.SearchArticles}
         component={SearchArticlesScreen}
         options={{
           title: '',
@@ -40,7 +46,7 @@ const BottomTabStackSNavigator: FC = () => {
         }}
       />
       <Stack.Screen
-        name="BookmarksScreen"
+        name={TabScreens.Bookmarks}
         component={BookmarksScreen}
         options={{
           title: '',
@@ -55,8 +61,8 @@ const BottomTabStackSNavigator: FC = () => {
 const styles = StyleSheet.create({
   bottomBarIcon: {
     marginTop: 20,
-    height: 24,
-    width: 24,
+    height: 22,
+    width: 22,
   },
 });
 
@@ -73,4 +79,4 @@ const renderTabBarIcon = (
   />
 );
 
-export default BottomTabStackSNavigator;
+export default TabStackNavigator;

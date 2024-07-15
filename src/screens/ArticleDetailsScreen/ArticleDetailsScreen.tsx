@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {View, Text, ScrollView, FlatList, TouchableOpacity} from 'react-native';
 
-import Animated, {FadeInLeft} from 'react-native-reanimated';
+import Animated, {FadeIn, FadeInLeft} from 'react-native-reanimated';
 import moment from 'moment';
 import FastImage from 'react-native-fast-image';
 
@@ -36,11 +36,13 @@ const ArticleDetailsScreen: FC = () => {
       <ScrollView
         alwaysBounceVertical={false}
         contentContainerStyle={styles.scrollViewContainer}>
-        <FastImage
-          source={{uri: article?.image_url}}
-          style={styles.articlePreview}
-          resizeMode={'cover'}
-        />
+        <Animated.View entering={FadeIn.duration(400).delay(300)}>
+          <FastImage
+            source={{uri: article?.image_url}}
+            style={styles.articlePreview}
+            resizeMode={'cover'}
+          />
+        </Animated.View>
 
         <View style={styles.content}>
           <Animated.Text

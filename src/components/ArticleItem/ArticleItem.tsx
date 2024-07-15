@@ -25,16 +25,20 @@ const ArticleItem: FC<ArticleItemProps> = ({item, onPress = () => {}}) => {
 
   const scaleAnimation = useSharedValue(1);
 
-  const pan = Gesture.Pan()
-    .onBegin(() => {
+  const pan = Gesture.Tap()
+    .maxDuration(10000)
+    .onTouchesDown(() => {
       scaleAnimation.value = withTiming(0.94, {
-        duration: 150,
+        duration: 200,
         easing: Easing.linear,
       });
     })
+    .onTouchesUp(() => {
+      //onPress
+    })
     .onFinalize(() => {
       scaleAnimation.value = withTiming(1, {
-        duration: 150,
+        duration: 200,
         easing: Easing.linear,
       });
     });

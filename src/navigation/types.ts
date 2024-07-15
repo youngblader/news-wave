@@ -6,24 +6,25 @@ type RootStackParamsList = {
 };
 
 type MainStackParamsList = {
-  ArticleDetailsScreen: {article: Article};
-  ArticlesScreen: undefined;
-  SearchArticlesScreen: undefined;
-  BookmarksScreen: undefined;
-  BottomTabBar: NavigatorScreenParams<BottomBarStackParamsList>;
+  ArticleDetails: ArticleDetailsParams;
+  TabBar: NavigatorScreenParams<TabBarStackParamsList>;
 };
 
-type BottomBarStackParamsList = {
-  ArticlesScreen: undefined;
-  SearchArticlesScreen: undefined;
-  BookmarksScreen: undefined;
+type ArticleDetailsParams = {
+  article: Article;
 };
 
-type AppStackParamsList = MainStackParamsList & BottomBarStackParamsList;
+type TabBarStackParamsList = {
+  Articles: undefined;
+  SearchArticles: undefined;
+  Bookmarks: undefined;
+};
+
+type AppStackParamsList = MainStackParamsList & TabBarStackParamsList;
 
 export type {
   RootStackParamsList,
   MainStackParamsList,
   AppStackParamsList,
-  BottomBarStackParamsList,
+  TabBarStackParamsList,
 };

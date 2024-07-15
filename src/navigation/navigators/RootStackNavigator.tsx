@@ -3,9 +3,16 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import MainStackNavigator from './MainStackNavigator';
 import {RootStackParamsList} from '../types';
-import {colors} from '../../styles';
 
 const Stack = createStackNavigator<RootStackParamsList>();
+
+const screenOptions = {
+  headerShown: false,
+};
+
+const RootScreens = {
+  Main: 'Main',
+} as const;
 
 const RootStackNavigator: FC = () => {
   return (
@@ -14,13 +21,8 @@ const RootStackNavigator: FC = () => {
         headerShown: false,
       }}>
       <Stack.Screen
-        name="Main"
-        options={{
-          headerShown: false,
-          cardStyle: {
-            backgroundColor: colors.white,
-          },
-        }}
+        name={RootScreens.Main}
+        options={screenOptions}
         component={MainStackNavigator}
       />
     </Stack.Navigator>

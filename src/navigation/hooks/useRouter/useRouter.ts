@@ -15,7 +15,7 @@ export const useRouter = (): Router => {
 
   const navigateArticleDetails = (article: Article) => {
     navigation.navigate('Main', {
-      screen: 'ArticleDetailsScreen',
+      screen: 'ArticleDetails',
       params: {
         article,
       },

@@ -10,7 +10,7 @@ export const useArticleDetails = () => {
   const dispatch = useAppDispatch();
   const {
     params: {article},
-  } = useAppRoute('ArticleDetailsScreen');
+  } = useAppRoute('ArticleDetails');
 
   const {articles} = useAppSelector(state => state.bookmarks);
 
