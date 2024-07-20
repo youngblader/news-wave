@@ -8,7 +8,7 @@ import {styles} from './styles';
 const ArticleCategoryItem: FC<ArticleCategoryItemProps> = ({
   category,
   isSelectedItem,
-  onPress,
+  onPress = () => {},
 }) => {
   return (
     <TouchableOpacity

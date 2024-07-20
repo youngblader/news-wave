@@ -1,8 +1,6 @@
 import {useState, useRef} from 'react';
 import {FlatList} from 'react-native';
 
-import {useRouter} from '../../navigation/hooks';
-
 import {useGetArticlesQuery} from '../../services/ArticlesService';
 import {ArticleCategory} from '../../models/ArticleCategory';
 
@@ -10,8 +8,6 @@ const categories = Object.values(ArticleCategory);
 const currentCategory = ArticleCategory.business;
 
 export const useArticles = () => {
-  const {navigateArticleDetails} = useRouter();
-
   const [selectedArticle, setSelectedArticle] = useState(currentCategory);
   const ref = useRef<FlatList>(null);
 
@@ -34,6 +30,5 @@ export const useArticles = () => {
     categories,
     selectedArticle,
     onArticlePress,
-    navigateArticleDetails,
   };
 };

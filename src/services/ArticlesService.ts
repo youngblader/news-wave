@@ -1,12 +1,13 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {ArticleResponse} from '../models/ArticleResponse';
 import {ArticleCategory} from '../models/ArticleCategory';
+import {BASE_URL} from '.';
 
 const KEY = 'YOUR KEY';
 
 export const articlesAPI = createApi({
   reducerPath: 'articlesAPI',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://newsdata.io/api/1'}),
+  baseQuery: fetchBaseQuery({baseUrl: BASE_URL}),
   endpoints: build => ({
     getArticles: build.query<ArticleResponse, ArticleCategory>({
       query: (category: ArticleCategory = ArticleCategory.business) => ({

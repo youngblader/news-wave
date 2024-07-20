@@ -1,3 +1,4 @@
+import {useAddBookmarks} from './useAddBookmarks';
 import {useDebounce} from './useDebounce/useDebounce';
 
-export {useDebounce};
+export {useDebounce, useAddBookmarks};

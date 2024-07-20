@@ -1,8 +1,11 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, {FC} from 'react';
 import {ColorValue, StyleSheet} from 'react-native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import FastImage, {Source} from 'react-native-fast-image';
+
+import {Header} from '../../ui';
 import {
   ArticlesScreen,
   SearchArticlesScreen,
@@ -31,9 +34,11 @@ const TabStackNavigator: FC = () => {
         name={TabScreens.Articles}
         component={ArticlesScreen}
         options={{
+          headerShown: true,
           title: '',
           tabBarIcon: ({color, focused}) =>
             renderTabBarIcon(IMAGES.home, color, focused),
+          header: () => <Header />,
         }}
       />
       <Stack.Screen
@@ -41,17 +46,21 @@ const TabStackNavigator: FC = () => {
         component={SearchArticlesScreen}
         options={{
           title: '',
+          headerShown: true,
           tabBarIcon: ({color, focused}) =>
             renderTabBarIcon(IMAGES.search, color, focused),
+          header: () => <Header />,
         }}
       />
       <Stack.Screen
         name={TabScreens.Bookmarks}
         component={BookmarksScreen}
         options={{
+          headerShown: true,
           title: '',
           tabBarIcon: ({color, focused}) =>
             renderTabBarIcon(IMAGES.bookmarks, color, focused),
+          header: () => <Header />,
         }}
       />
     </Stack.Navigator>

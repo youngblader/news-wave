@@ -11,13 +11,10 @@ export const styles = StyleSheet.create({
   },
   flatlistInsets: {
     flexGrow: 1,
+    paddingHorizontal: 16,
+    marginVertical: 16,
   },
   separator: {
     width: 10,
-  },
-  list: {
-    flexGrow: 1,
-    marginVertical: 14,
-    paddingHorizontal: 16,
   },
 });

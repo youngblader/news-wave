@@ -1,38 +1,19 @@
 import React, {FC} from 'react';
-import {View, Text, ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, FlatList} from 'react-native';
 
 import Animated, {FadeIn, FadeInLeft} from 'react-native-reanimated';
 import moment from 'moment';
 import FastImage from 'react-native-fast-image';
 
-import {Header} from '../../ui';
 import {useArticleDetails} from '.';
 
-import {IMAGES} from '../../constants/images';
 import {styles} from './styles';
-import {hitSlop} from '../../styles';
 
 const ArticleDetailsScreen: FC = () => {
-  const {article, isAddedArticle, articleCreators, addBookmark} =
-    useArticleDetails();
+  const {article, articleCreators} = useArticleDetails();
 
   return (
     <View style={styles.container}>
-      <Header
-        isNavigationHeader={true}
-        rightComponent={
-          <TouchableOpacity onPress={addBookmark}>
-            <FastImage
-              style={styles.bookmarkIcon}
-              hitSlop={hitSlop}
-              source={
-                isAddedArticle ? IMAGES.bookmarksSelected : IMAGES.bookmarks
-              }
-            />
-          </TouchableOpacity>
-        }
-      />
-
       <ScrollView
         alwaysBounceVertical={false}
         contentContainerStyle={styles.scrollViewContainer}>

@@ -32,4 +32,8 @@ export const styles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: 'bold',
   },
+  bookmarkIcon: {
+    width: 24,
+    height: 24,
+  },
 });

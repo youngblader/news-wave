@@ -1,5 +1,8 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, {FC} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+
+import {Header} from '../../ui';
 
 import {ArticleDetailsScreen} from '../../screens';
 import TabStackNavigator from './TabStackNavigator';
@@ -34,7 +37,10 @@ const MainStackNavigator: FC = () => {
 
       <Stack.Screen
         name={MainScreens.ArticleDetails}
-        options={screenOptions}
+        options={{
+          headerShown: true,
+          header: () => <Header isNavigationHeader={true} />,
+        }}
         component={ArticleDetailsScreen}
       />
     </Stack.Navigator>
